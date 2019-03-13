@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
+
+import { onLogoutUser } from '../actions/index'
 
 class Header extends Component {
     render() {
@@ -41,6 +43,7 @@ class Header extends Component {
         } else {
             return (
                 <div>
+                <Redirect to='/'/>
                 <nav className="navbar sticky-top navbar-expand-md navbar-light bg-light mb-3">
                     <div className="container">
                         <Link className="navbar-brand" to="/">simpleMercer</Link>
@@ -87,5 +90,5 @@ const mapStateToProps = state => {
     return {user: state.auth}
 }
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, {onLogoutUser})(Header)
 

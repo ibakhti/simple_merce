@@ -18,6 +18,12 @@ const AuthReducer = (state = init, action) => {
         case 'AUTH_SUCCESS':
             return {...state, error: '', success : action.payload}
             
+        case 'AUTH_NO_MESS':
+            return {...state, error: '', success: ''}
+        
+        case 'LOGOUT_USER':
+            window.location.pathname= '/'
+            return {...init}
     
         default:
             return state
