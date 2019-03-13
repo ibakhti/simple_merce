@@ -14,6 +14,7 @@ class ManageProduct extends Component {
 
     getProduct = () => {
         // comment ok
+        // comment dua
         axios.get('http://localhost:1996/products')
             .then(res => {
                 this.setState({products: res.data})
